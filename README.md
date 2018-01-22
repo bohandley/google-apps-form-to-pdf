@@ -6,7 +6,7 @@ This script is used to access google apps form data with a google business accou
 - edit the copy 
 - send it as an email to selected people.
 
-## How to use the script
+## How to set up a google form to use the script
 
 1. Create a folder in Google Drive
 
@@ -47,12 +47,12 @@ This script is used to access google apps form data with a google business accou
 
 16. Begin typing your code that will run when the form is submitted.
 
-CODE FOR FORM SUBMIT
+## How to implement the code in the script
 
 This code describes the following
--accessing form values
--creating a pdf with these values
--sending the pdf by email 
+- accessing form values
+- creating a pdf with these values
+- sending the pdf by email 
 
 1. Get a template for your pdf. 
 
