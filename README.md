@@ -88,9 +88,9 @@ var email = "bob@greatemail.com, melinda@greateremail.com"
 ```
     var date = e.values[0];
     var respondent = e.values[1];
-    var first_question = e.values[2];
-    var second_question = e.values[3];
-    var third_question = e.values[4];
+    var firstQuestion = e.values[2];
+    var secondQuestion = e.values[3];
+    var thirdQuestion = e.values[4];
 ```
 
 ### Create a Copy of the Template
