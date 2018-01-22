@@ -6,7 +6,7 @@ This script is used to access google apps form data with a google business accou
 - edit the copy 
 - send it as an email to selected people.
 
-## How to set up a google form to use the script
+## How to Set Up a Google Form to Use the Script
 
 1. Create a folder in Google Drive
 
