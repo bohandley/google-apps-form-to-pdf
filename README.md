@@ -68,13 +68,19 @@ This code describes the following
     - id = _1FQAJ8v0oWv0EM7uHXp18bKPYaClwPVmnUqG2DwO9GzY_
     
 3. Create a variable called documentId and set it equal to the template id.
-    `var docTemplate = "1FQAJ8v0oWv0EM7uHXp18bKPYaClwPVmnUqG2DwO9GzY"`
+```
+var docTemplate = "1FQAJ8v0oWv0EM7uHXp18bKPYaClwPVmnUqG2DwO9GzY"
+```
 
 4.  Create a variable called docName and set it equal to the name of your template.
-    `var docName = "name-of-your-template"`
+```
+var docName = "name-of-your-template"
+```
 
 5. Within the function onFormSubmit(), create the variable email and set it equal to the email address of the person or personsyou would like to email the pdf to. 
-    `var email = "bob@greatemail.com, melinda@greateremail.com"`
+```
+var email = "bob@greatemail.com, melinda@greateremail.com"
+```
 
 ### The Form Values
 6. Access the values from the form using `e.values`. This returns an array of values. The value at the 0 position of the array, `e.values[0]`, is the timestamp. When creating the form, if you have chosen to 'Collect email addresses,' the email address of the respondent will be at the 1 position, `e.values[1]`. All other values are listed by the order of how the questions were created.
