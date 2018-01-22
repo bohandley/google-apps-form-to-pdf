@@ -1,5 +1,5 @@
 var docTemplate = "your-template-id-here";
-var docName = "Work Status";
+var docName = "name-the-template";
 
 function onFormSubmit(e) {
   
@@ -8,9 +8,9 @@ function onFormSubmit(e) {
   // Get the values from the form. e.values returns an array
   var date = e.values[0];
   var respondent = e.values[1];
-  var job_transfer_status = e.values[2];
-  var foreman = e.values[3];
-  var available_to_work = e.values[4];
+  var firstQuestion = e.values[2];
+  var secondQuestion = e.values[3];
+  var thirdQuestion = e.values[4];
   
   // e.namedValues returns an object that contains keys and values for the form
   // var objectFormValues = e.namedValues;
@@ -27,11 +27,11 @@ function onFormSubmit(e) {
   // Replace certain text in the body of the template copy using the variables from the form
   // Edit the template copy with data from the form
   copyBody.replaceText('keyDate', date);
-  copyBody.replaceText('keyJobTransferStatus', job_transfer_status);
-  copyBody.replaceText('keyForeman', foreman);
-  copyBody.replaceText('keyAvailableToWork', available_to_work);
   copyBody.replaceText('keyRespondent', respondent);  
-
+  copyBody.replaceText('keyFirstQuestion', firstQuestion);
+  copyBody.replaceText('keySecondQuestion', secondQuestion);
+  copyBody.replaceText('keyThirdQuestion', thirdQuestion);
+  
   // Save and close the edited copy of the template
   copyDoc.saveAndClose();
   
@@ -39,9 +39,9 @@ function onFormSubmit(e) {
   var pdf = DriveApp.getFileById(copyId).getAs("application/pdf");
   
   // Create the subject for the email using the respondent of the form
-  var subject = 'Job Status Tracker for ' + respondent;
+  var subject = 'A form was sent on this date and time' + date;
   // Create the body of the email using the respondent and date values from the form
-  var body = 'Work Status for ' + respondent + ' submitted on ' + date;
+  var body = 'This is the body of the email which may contain a variable like the Respondent: " + respondent;
   // Send the email to the designated person or persons from line 6, with the subject, body and pdf(attached)
   MailApp.sendEmail(email, subject, body,{attachments: pdf});
   
