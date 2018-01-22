@@ -1,10 +1,11 @@
 # google-apps-form-to-pdf
 This script is used to access google apps form data with a google business account. The script allows you to:
 
+- access data from a google form
 - access a google doc template 
 - make a copy of the template 
 - edit the copy 
-- send it as an email to selected people.
+- send it as a pdf attachment by email.
 
 ## How to Set Up a Google Form to Use the Script
 
