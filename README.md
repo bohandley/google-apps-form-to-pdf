@@ -59,7 +59,7 @@ This code describes the following
 2. Git the id number for the template.
     Every google template has a URL. The id number is found in a google docs url.
     https://docs.google.com/document/d/1xDRqPZEe_T2Z7GrGPmC3eFGo50UfFV_vXkfYwiiHqJ4/edit
-    -- id = _1xDRqPZEe_T2Z7GrGPmC3eFGo50UfFV_vXkfYwiiHqJ4_
+    - id = _1xDRqPZEe_T2Z7GrGPmC3eFGo50UfFV_vXkfYwiiHqJ4_
     
 3. Create a variable called documentId and set it equal to the template id.
 
