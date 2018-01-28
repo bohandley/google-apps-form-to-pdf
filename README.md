@@ -1,13 +1,22 @@
-# google-apps-form-to-pdf
-This script is used to access google apps form data with a google business account. The script allows you to:
+# google-apps-scripts
+Use Google Apps Scripts to:
 
-- access data from a google form
-- access a google doc template 
-- make a copy of the template 
-- edit the copy 
-- send it as a pdf attachment by email.
+1. Create a form linked to a sheet and send an email as
 
-## How to Set Up a Google Form to Use the Script
+    - access data from a google form
+    - access a google doc template 
+    - make a copy of the template 
+    - edit the copy 
+    - send it as a pdf attachment by email.
+
+2. Create a Dependent Dropdown Cell in Google Sheets
+
+    - Access data from a second Google Sheet
+    - Loop through a collection of data
+    - Create a dropdown cell that is dependent on data from another Dropdown 
+
+
+## How to Set Up a Google Form to Use the workStatusFormScript.js
 
 1. Create a folder in Google Drive
 
@@ -50,7 +59,7 @@ This script is used to access google apps form data with a google business accou
 
 19. Copy and paste the code from workStatusFormScript.js. Get ready enter some specific values and variables for your script. 
 
-## How to implement the code in the script
+### How to implement the code in the script
 
 This code describes the following
 - getting the template for the pdf by ID
@@ -60,7 +69,7 @@ This code describes the following
 - converting the template file to a pdf
 - sending the pdf by email 
 
-### The Template
+#### The Template
 1. Get a template for your pdf. 
 
 2. Get the id number for the template. The template described below is a To Do List template. Find your own or create one from indtructions (here)[https://www.wikihow.com/Create-a-Template-in-Google-Docs]
@@ -83,7 +92,7 @@ var docName = "name-of-your-template"
 var email = "bob@greatemail.com, melinda@greateremail.com"
 ```
 
-### The Form Values
+#### The Form Values
 6. Access the values from the form using `e.values`. This returns an array of values. The value at the 0 position of the array, `e.values[0]`, is the timestamp. When creating the form, if you have chosen to 'Collect email addresses,' the email address of the respondent will be at the 1 position, `e.values[1]`. All other values are listed by the order of how the questions were created.
 ```
     var date = e.values[0];
@@ -93,7 +102,7 @@ var email = "bob@greatemail.com, melinda@greateremail.com"
     var thirdQuestion = e.values[4];
 ```
 
-### Create a Copy of the Template
+#### Create a Copy of the Template
 7. Create a variable called `copyId` and set it equal to `DriveApp.getFileById(docTemplate)`. Notice that the method getFileById() takes the variable `docTemplate` which we assigned in step 3.
 ```
 var copyId = DriveApp.getFileById(docTemplate)
@@ -119,7 +128,7 @@ var copyId = DriveApp.getFileById(docTemplate).makeCopy(docName + "copy").getId(
 var copyDoc = var copyDoc = DocumentApp.openById(copyId);
 ```
 
-### Edit the Copy of the Template
+#### Edit the Copy of the Template
 
 12. Create a variable called `copyBody` and set it equal to `copyDoc.getActiveSection()`. `copyBody` is now an object, and the text of this object can now be edited.
 ```
@@ -144,7 +153,7 @@ copyBody.replaceText('keyDate', date);
 copyDoc.saveAndClose();
 ```
 
-### Convert the Template Copy to pdf
+#### Convert the Template Copy to pdf
 17. Create a variable called `pdf` and set it equal to `DriveApp.getFileById(copyId)`. Notice that we pass the var `copyId` to the method getFileById().
 ```
 var pdf = DriveApp.getFileById(copyId)
@@ -157,7 +166,7 @@ var pdf = DriveApp.getFileById(copyId).getAs("application/pdf");
 
 We now have a pdf of the edited template.
 
-### Send the Email with the pdf as an Attachment
+#### Send the Email with the pdf as an Attachment
 19. Create a variable called `subject` and set it equal to a string. This will be the subject line for the email. You may also concatenate any variables from the form by adding them to the string, i.e.
 ```
 var subject = 'A form was sent on this date and time' + date;
@@ -191,3 +200,24 @@ DriveApp.getFileById(copyId)
 DriveApp.getFileById(copyId).setTrashed(true);
 ```
 You can now fill out the form, create a pdf and send it as an email. Enjoy!
+
+## Use dependentDropdownCell.js to Create a Dependent Dropdown Menu
+
+1. Select a range of cells.
+
+2. Right click to create validation of values for the dropdown selection of each cell in the range of cells.
+
+3. Choose a range of data from a spread sheet, i.e., `'Your-sheet'!A1:A10`
+
+4. Identify a collection of data in a second spreadsheet associated with the first dropdown menu.
+
+5. Create a collection of arrays with associated data.
+
+6. Loop through the array of arrays and identify where values meet a condition dependent on the first dropdown cell value.
+
+7. Create a collection from all values that meet the previous condition.
+
+8. Use this collection to create a rule for a validation.
+
+9. Create the validation
+
